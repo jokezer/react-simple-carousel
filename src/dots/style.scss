@@ -1,0 +1,16 @@
+@import '~assets/styles/color-palette.scss';
+
+._rsc-dots {
+  &__dot {
+    cursor: pointer;
+
+    opacity: .8;
+    color: $gray;
+    border: none;
+    background: none;
+
+    &:disabled {
+      opacity: .2;
+    }
+  }
+}

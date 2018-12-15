@@ -1,0 +1,41 @@
+{
+  "name": "react-simple-carousel",
+  "version": "0.0.1",
+  "description": "Simple lightweight react carousel",
+  "main": "./src/index.js",
+  "author": "Eugene Menshakov <jokezer@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "add-bem-name": "^1.0.0",
+    "lodash": "^4.17.11",
+    "react": "^16.6.3",
+    "react-fontawesome": "^1.6.1"
+  },
+  "babel": {
+    "presets": [
+      "env",
+      "react",
+      "stage-0"
+    ],
+    "plugins": [
+      "transform-runtime"
+    ]
+  },
+  "eslintConfig": {
+    "parser": "babel-eslint",
+    "extends": "airbnb"
+  },
+  "scripts": {
+    "eslint": "eslint src"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "github.com/jokezer/react-simple-carousel"
+  },
+  "keywords": [
+    "react",
+    "carousel",
+    "slider"
+  ]
+}
