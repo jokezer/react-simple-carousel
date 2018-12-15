@@ -1,5 +1,5 @@
 {
-  "name": "react-simple-carousel",
+  "name": "react-light-carousel",
   "version": "0.0.1",
   "description": "Simple lightweight react carousel",
   "main": "./src/index.js",
