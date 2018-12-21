@@ -25,6 +25,6 @@ module.exports = {
     "moment": false,
     "FontAwesome": false,
     "addBemName": false,
-    "_": false,
+    "_": false
   }
 }

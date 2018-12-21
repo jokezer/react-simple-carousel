@@ -4,6 +4,7 @@ import addBemName from 'add-bem-name';
 import Arrow from '../arrow/arrow';
 import CarouselSlide from '../slide/slide';
 import CarouselDots from '../dots/dots';
+import getElementHeight from '../utils/getElementHeight';
 
 import './style.scss';
 
@@ -64,8 +65,8 @@ class ReactSimleCarousel extends React.Component {
     const currentSlide = _.get(this.slides, `[${slideIndex}].firstChild`, null);
 
     if (!currentSlide) return;
-
-    this.slidesContainer.style.height = `${currentSlide.offsetHeight}px`;
+    const height = getElementHeight(currentSlide.parentNode);
+    this.slidesContainer.style.height = `${height}px`;
   }
 
   setNextSlide() {

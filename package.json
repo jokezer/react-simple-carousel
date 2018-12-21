@@ -28,7 +28,9 @@
   "scripts": {
     "eslint": "eslint src"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "babel-eslint": "^10.0.1"
+  },
   "repository": {
     "type": "git",
     "url": "github.com/jokezer/react-simple-carousel"
