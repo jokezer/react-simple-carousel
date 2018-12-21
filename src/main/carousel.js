@@ -34,6 +34,7 @@ class ReactSimleCarousel extends React.Component {
 
   componentWillMount() {
     window.addEventListener('resize', this.setSlideHeight, false);
+    window.addEventListener('keydown', this.onKeyDown, false);
     this.runAutoplay();
   }
 
@@ -44,6 +45,7 @@ class ReactSimleCarousel extends React.Component {
   componentWillUnmount() {
     this.stopTimeout();
     window.removeEventListener('resize', this.setSlideHeight, false);
+    window.removeEventListener('keydown', this.onKeyDown, false);
   }
 
   onKeyDown({ keyCode }) {
@@ -71,12 +73,22 @@ class ReactSimleCarousel extends React.Component {
 
   setNextSlide() {
     const { slideIndex } = this.state;
-    return this.isLastSlide() ? this.setSlide(0) : this.setSlide(slideIndex + 1);
+    const { wrapAround } = this.props;
+    const isLastSlide = this.isLastSlide();
+
+    if (!wrapAround && isLastSlide) return null;
+
+    return isLastSlide ? this.setSlide(0) : this.setSlide(slideIndex + 1);
   }
 
   setPrevioutSlide() {
+    const { wrapAround } = this.props;
     const { slidesCount, slideIndex } = this.state;
-    return this.isFirstSlide() ? this.setSlide(slidesCount - 1) : this.setSlide(slideIndex - 1);
+    const isFirstSlide = this.isFirstSlide();
+
+    if (!wrapAround && isFirstSlide) return null;
+
+    return isFirstSlide ? this.setSlide(slidesCount - 1) : this.setSlide(slideIndex - 1);
   }
 
   setSlide(slideIndex) {
@@ -114,7 +126,7 @@ class ReactSimleCarousel extends React.Component {
 
   render() {
     const {
-      wrapAround, autoplay, autoplayInterval, children, className, mobile
+      wrapAround, autoplay, autoplayInterval, children, className, mobile,
     } = this.props;
 
     const { slideIndex, slidesCount, navigation, offset } = this.state;
@@ -135,7 +147,6 @@ class ReactSimleCarousel extends React.Component {
           [bemName(null, 'mobile')]: mobile,
         }),
         onClick: this.stopTimeout,
-        onKeyDown: this.onKeyDown,
         role: 'presentation'
       }, [
         React.createElement(
@@ -153,7 +164,7 @@ class ReactSimleCarousel extends React.Component {
             key: 'left-arrow',
             direction: "previous",
             className: classnames(bemName('arrow'), bemName('arrow', 'left')),
-            disabled: !wrapAround || this.isFirstSlide(),
+            disabled: !wrapAround && this.isFirstSlide(),
             onClick: this.setPrevioutSlide,
             text: mobile ? 'Previous' : '',
           },
@@ -163,7 +174,7 @@ class ReactSimleCarousel extends React.Component {
             key: 'right-arrow',
             direction: "next",
             className: classnames(bemName('arrow'), bemName('arrow', 'right')),
-            disabled: !wrapAround || this.isLastSlide(),
+            disabled: !wrapAround && this.isLastSlide(),
             onClick: this.setNextSlide,
             text: mobile ? 'Next' : '',
           },
