@@ -65,7 +65,7 @@ class ReactSimleCarousel extends React.Component {
     const currentSlide = _.get(this.slides, `[${slideIndex}].firstChild`, null);
 
     if (!currentSlide) return;
-    const height = getElementHeight(currentSlide.parentNode);
+    const height = getElementHeight(currentSlide);
     this.slidesContainer.style.height = `${height}px`;
   }
 

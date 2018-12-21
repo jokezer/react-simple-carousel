@@ -1,6 +1,6 @@
 {
   "name": "react-lightweight-carousel",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "Simple lightweight react carousel",
   "main": "./src/index.js",
   "author": "Eugene Menshakov <jokezer@gmail.com>",

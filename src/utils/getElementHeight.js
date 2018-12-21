@@ -1,7 +1,7 @@
 function getPadding(element) {
   if (!getComputedStyle) return [25, 25];
 
-  const { paddingTop, paddingBottom } = getComputedStyle(element);
+  const { paddingTop, paddingBottom } = getComputedStyle(element.parentNode);
   return [parseFloat(paddingTop), parseFloat(paddingBottom)];
 }
 
