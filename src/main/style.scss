@@ -86,7 +86,7 @@
       &__arrow {
         position: relative;
 
-        margin: 0 20px 5px;
+        margin-bottom: 5px;
         padding: 10px 20px;
 
         transform: inherit;
@@ -95,9 +95,12 @@
 
         &--right {
           float: right;
+
+          margin-right: 65px;
         }
 
         &--left {
+          margin-left: 65px;
         }
       }
 
@@ -107,7 +110,9 @@
 
       @media (max-width: $screen-xm) {
         &__arrow {
-          margin: 0;
+          margin-right: 0;
+          margin-bottom: 0;
+          margin-left: 0;
         }
 
         &__dots {
