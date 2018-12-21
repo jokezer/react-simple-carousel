@@ -5,8 +5,6 @@ import Arrow from '../arrow/arrow';
 import CarouselSlide from '../slide/slide';
 import CarouselDots from '../dots/dots';
 
-console.log(Arrow, CarouselSlide, CarouselDots);
-
 import './style.scss';
 
 const bemName = addBemName('_rsc-main');
@@ -61,7 +59,7 @@ class ReactSimleCarousel extends React.Component {
   }
 
   setSlideHeight(index) {
-    if (!this.props.mobile) return;
+    if (!this.props.changeSlideHeight) return;
     const slideIndex = isNumber(index) ? index : this.state.slideIndex;
     const currentSlide = _.get(this.slides, `[${slideIndex}].firstChild`, null);
 
@@ -190,12 +188,14 @@ ReactSimleCarousel.propTypes = {
   autoplay: PropTypes.bool.isRequired,
   children: PropTypes.node.isRequired,
   mobile: PropTypes.bool.isRequired,
+  changeSlideHeight: PropTypes.bool,
   afterSlideCallback: PropTypes.func,
 };
 
 ReactSimleCarousel.defaultProps = {
   className: null,
   afterSlideCallback: () => false,
+  changeSlideHeight: true,
 };
 
 export default ReactSimleCarousel;
