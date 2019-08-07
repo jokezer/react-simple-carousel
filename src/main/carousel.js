@@ -102,12 +102,18 @@ class ReactSimleCarousel extends React.Component {
   }
 
   runAutoplay() {
-    const { autoplay } = this.state;
+    const { autoplay, slidesCount } = this.state;
     const { autoplayInterval } = this.props;
 
+    if (slidesCount === 1) return;
     if (!autoplay) return;
 
-    this.autoplayInterval = setInterval(this.setNextSlide, autoplayInterval);
+    this.autoplayInterval = setInterval(this.setNextSlideIfVisible, autoplayInterval);
+  }
+
+  setNextSlideIfVisible() {
+    const element = _.head(document.getElementsByClassName(bemName()));
+    console.log(element.offsetTop, element.offsetHeight, window.pageYOffset);
   }
 
   stopTimeout() {
@@ -147,7 +153,7 @@ class ReactSimleCarousel extends React.Component {
           [bemName(null, 'mobile')]: mobile,
         }),
         onClick: this.stopTimeout,
-        role: 'presentation'
+        role: 'presentation',
       }, [
         React.createElement(
           'div',

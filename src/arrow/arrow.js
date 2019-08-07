@@ -1,9 +1,10 @@
-import FontAwesome from 'react-fontawesome';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 
 const Arrow = (props) => {
   const { className, disabled, onClick, direction, text } = props;
   const next = direction === 'next';
-  const iconName = next ? 'angle-right' : 'angle-left';
+  const iconName = next ? faChevronRight : faChevronLeft;
 
   return React.createElement(
     'button', {
@@ -11,7 +12,7 @@ const Arrow = (props) => {
       onClick,
       disabled,
     }, [
-      React.createElement(FontAwesome, { key: 'arrow', name: iconName }),
+      React.createElement(FontAwesomeIcon, { key: 'arrow', icon: iconName }),
       React.createElement('span', { key: 'text' }, text ? ` ${text}` : ''),
     ]
   )
