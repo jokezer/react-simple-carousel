@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { isNumber } from 'lodash';
 import addBemName from 'add-bem-name';
+import classnames from 'classnames';
 import Arrow from '../arrow/arrow';
 import CarouselDots from '../dots/dots';
 import getElementHeight from '../utils/getElementHeight';
@@ -10,13 +11,13 @@ import './style.scss';
 
 const bemName = addBemName('_rsc-main');
 
-class ReactSimleCarousel extends React.Component {
+class ReactSimpleCarousel extends React.Component {
   constructor(props) {
     super(props);
 
     this.setSlide = this.setSlide.bind(this);
     this.setNextSlide = this.setNextSlide.bind(this);
-    this.setPrevioutSlide = this.setPrevioutSlide.bind(this);
+    this.setPreviousSlide = this.setPreviousSlide.bind(this);
     this.setSlideHeight = this.setSlideHeight.bind(this);
     this.onKeyDown = this.onKeyDown.bind(this);
     this.stopTimeout = this.stopTimeout.bind(this);
@@ -52,7 +53,7 @@ class ReactSimleCarousel extends React.Component {
     switch (keyCode) {
       case 37:
         this.stopTimeout();
-        return this.setPrevioutSlide();
+        return this.setPreviousSlide();
       case 39:
         this.stopTimeout();
         return this.setNextSlide();
@@ -81,7 +82,7 @@ class ReactSimleCarousel extends React.Component {
     return isLastSlide ? this.setSlide(0) : this.setSlide(slideIndex + 1);
   }
 
-  setPrevioutSlide() {
+  setPreviousSlide() {
     const { wrapAround } = this.props;
     const { slidesCount, slideIndex } = this.state;
     const isFirstSlide = this.isFirstSlide();
@@ -171,7 +172,7 @@ class ReactSimleCarousel extends React.Component {
             direction: "previous",
             className: classnames(bemName('arrow'), bemName('arrow', 'left')),
             disabled: !wrapAround && this.isFirstSlide(),
-            onClick: this.setPrevioutSlide,
+            onClick: this.setPreviousSlide,
             text: mobile ? 'Previous' : '',
           },
         ) : null,
@@ -199,7 +200,7 @@ class ReactSimleCarousel extends React.Component {
   }
 }
 
-ReactSimleCarousel.propTypes = {
+ReactSimpleCarousel.propTypes = {
   className: PropTypes.string,
   wrapAround: PropTypes.bool.isRequired,
   autoplayInterval: PropTypes.number.isRequired,
@@ -210,10 +211,10 @@ ReactSimleCarousel.propTypes = {
   afterSlideCallback: PropTypes.func,
 };
 
-ReactSimleCarousel.defaultProps = {
+ReactSimpleCarousel.defaultProps = {
   className: null,
   afterSlideCallback: () => false,
   changeSlideHeight: true,
 };
 
-export default ReactSimleCarousel;
+export default ReactSimpleCarousel;

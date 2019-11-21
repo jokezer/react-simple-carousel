@@ -1,6 +1,6 @@
 {
   "name": "react-lightweight-carousel",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Simple lightweight react carousel",
   "main": "./src/index.js",
   "author": "Eugene Menshakov <jokezer@gmail.com>",
@@ -10,6 +10,7 @@
     "@fortawesome/free-solid-svg-icons": "^5.10.1",
     "@fortawesome/react-fontawesome": "^0.1.4",
     "add-bem-name": "^1.0.0",
+    "classnames": "^2.2.6",
     "lodash": "^4.17.11",
     "react": "^16.6.3",
     "react-fontawesome": "^1.6.1"

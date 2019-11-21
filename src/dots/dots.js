@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import FontAwesome from 'react-fontawesome';
+import classnames from 'classnames';
 
 import { partial, times } from 'lodash';
 import addBemName from 'add-bem-name';
