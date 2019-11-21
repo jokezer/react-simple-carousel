@@ -1,3 +1,6 @@
+import * as React from 'react'
+import PropTypes from 'prop-types';
+
 const CarouselSlide = ({ className, content, image }) => {
   const style = image ? { backgroundImage: `url(${image})` } : {};
 

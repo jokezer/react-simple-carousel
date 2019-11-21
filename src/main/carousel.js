@@ -1,8 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { isNumber } from 'lodash';
 import addBemName from 'add-bem-name';
 import Arrow from '../arrow/arrow';
-import CarouselSlide from '../slide/slide';
 import CarouselDots from '../dots/dots';
 import getElementHeight from '../utils/getElementHeight';
 

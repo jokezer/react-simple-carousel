@@ -1,6 +1,6 @@
 {
   "name": "react-lightweight-carousel",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Simple lightweight react carousel",
   "main": "./src/index.js",
   "author": "Eugene Menshakov <jokezer@gmail.com>",
@@ -32,7 +32,8 @@
     "eslint": "eslint src"
   },
   "devDependencies": {
-    "babel-eslint": "^10.0.1"
+    "babel-eslint": "^10.0.1",
+    "prop-types": "^15.7.2"
   },
   "repository": {
     "type": "git",

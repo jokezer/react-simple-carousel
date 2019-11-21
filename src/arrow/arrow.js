@@ -1,5 +1,6 @@
+import PropTypes from 'prop-types';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
+import {faChevronLeft, faChevronRight} from '@fortawesome/free-solid-svg-icons'
 
 const Arrow = (props) => {
   const { className, disabled, onClick, direction, text } = props;
